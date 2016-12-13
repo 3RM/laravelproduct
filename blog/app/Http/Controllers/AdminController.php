@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Admin;
 
 class AdminController extends Controller
 {
@@ -15,7 +16,11 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+			'products' => Admin::all(),
+			'count' => Admin::count()
+		];
+		return view('index',$data);
     }
 
     /**

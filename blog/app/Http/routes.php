@@ -11,14 +11,21 @@
 |
 */
 
+//Route::get('/',['uses' => 'HomeController@index', 'as' => 'home']);
+
+// IndexController
 Route::get('/', function () {
     
 });
+Route::get('/product/{id}', function () {
+    
+});
 
+// AdminController
 Route::group(['prefix' => 'admin'], function () {
-  Route::get('product', function ()    {
-    // Соответствует URL "/admin/product"
-  });
+	
+  Route::get('product',['uses' => 'AdminController@index', 'as' => 'home']);
+  
   Route::get('product/create', function ()    {
     // Соответствует URL "/admin/product/create"
   });
@@ -28,5 +35,6 @@ Route::group(['prefix' => 'admin'], function () {
   Route::delete('product/{product}', function ()    {
     // Соответствует URL "/admin/product/{product}"
   });
+  
 });
 

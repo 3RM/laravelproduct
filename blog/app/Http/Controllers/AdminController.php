@@ -14,7 +14,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = [
 			'products' => Admin::all(),
@@ -86,6 +86,6 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+       //
     }
 }

@@ -29,17 +29,24 @@
 							<a class="btn btn-info" href="#">
 								<i class="glyphicon glyphicon-pencil"></i>
 							</a>
-							<button class="btn btn-danger">
-								<i class="glyphicon glyphicon-trash"></i>
-							</button>
+							<form action="product/delete/{{ $product->id }}" method="POST">
+								{{ csrf_field() }}
+								{{ method_field('DELETE') }}
+
+								<button class="btn btn-danger">Удалить задачу</button>
+							</form>
 						</div>
 					</div>
 				</div>
 				@endforeach      
             
-        </div>
-        
-                
+        </div>       
+        <form method="post" action="product/create">
+			{{ csrf_field() }}
+			<input type="text" name="name" />
+			<input type="text" name="description" />
+			<input type="submit" value="go">
+		</form>		
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     </body>

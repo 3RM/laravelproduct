@@ -11,6 +11,9 @@
 |
 */
 
+use App\Admin;
+use Illuminate\Http\Request;
+
 //Route::get('/',['uses' => 'HomeController@index', 'as' => 'home']);
 
 // IndexController
@@ -26,15 +29,32 @@ Route::group(['prefix' => 'admin'], function () {
 	
   Route::get('product',['uses' => 'AdminController@index', 'as' => 'home']);
   
-  Route::get('product/create', function ()    {
-    // Соответствует URL "/admin/product/create"
-  });
+  //Route::get('product/create', 'AdminController@create');
+  
   Route::post('product', function ()    {
     // Соответствует URL "/admin/product"
   });
-  Route::delete('product/{product}', function ()    {
+  Route::delete('admin/product/delete/{id}', 'AdminController@destroy');
     // Соответствует URL "/admin/product/{product}"
-  });
+  
+});
+
+Route::post("admin/product/create", function (Request $request) {  
+  
+  $product = new Admin;
+  $product->name = $request->name;;
+  $product->description = $request->description;
+  $product->save();
+
+  return redirect('admin/product');
+  
+});
+
+Route::delete("admin/product/delete/{id}", function ($id) {  
+  
+  Admin::findOrFail($id)->delete(); 
+  
+  return redirect('admin/product');
   
 });
 

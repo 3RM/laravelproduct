@@ -19,8 +19,7 @@
 	    <label for="description" class="col-sm-3 control-label">Description</label>
 
 	    <div class="col-sm-6">
-		<textarea name="description" id="description" class="form-control">
-		</textarea>
+		<textarea name="description" id="description" class="form-control"></textarea>
 	    </div>
 	    <!-- Кнопка добавления задачи -->
 	    <div class="form-group">

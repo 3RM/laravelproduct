@@ -10,8 +10,7 @@ use App\Product;
 class AdminController extends Controller {
 
     public function index() {
-	$products = Product::orderBy('created_at', 'asc')
-		->get();
+	$products = Product::latest()->paginate(4);
 
 	return view('products.admin.index', [
 	    'products' => $products,

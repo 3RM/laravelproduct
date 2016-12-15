@@ -8,7 +8,8 @@
 
             <!--Заголовок таблицы--> 
             <thead>
-            <th>Заголовок</th>
+            <th>Название</th>
+			<th>Описание</th>
             <th>Дата создания</th>
             <th>Дата изменения</th>
             <th>Действие</th>
@@ -41,9 +42,13 @@
                     </td>
                 </tr>
                 @endforeach
+				
             </tbody>
         </table>
-    </div>
+    </div>	
 </div>
 @endif
+<div class="text-center">
+	{{$products->render()}}
+</div>
 @endsection
